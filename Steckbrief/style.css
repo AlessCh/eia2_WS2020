@@ -1,5 +1,5 @@
-body {
+body, a {
   color: gray;
   font-family: monospace;
   font-size: 10px;
-  }
+}
