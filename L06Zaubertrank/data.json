@@ -1,0 +1,28 @@
+{
+    "Ingredients": [
+        {
+            "name": "Blutegel",
+            "price": 10
+        },
+        {
+            "name": "Rattenschwanz",
+            "price": 5
+        },
+        {
+            "name": "Spinnenbeine",
+            "price": 12
+        },
+        {
+            "name": "Aalaugen",
+            "price": 10
+        },
+        {
+            "name": "Echsenblut",
+            "price": 200
+        },
+        {
+            "name": "Einhorntränen",
+            "price": 30
+        }
+    ]
+}

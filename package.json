@@ -1,0 +1,21 @@
+{
+  "name": "eia2_ws2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node L06Zaubertrank/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlessCh/eia2_WS2020.git"
+  },
+  "author": "alessandra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlessCh/eia2_WS2020/issues"
+  },
+  "homepage": "https://github.com/AlessCh/eia2_WS2020#readme"
+}

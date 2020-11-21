@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexelkessel</title>
+    <link rel="stylesheet" href="editor.css">
+    <script src="editor.js" defer></script>
+    <script src="client.js"></script>
+    <script src="GenerateContent.js"></script>
+</head>
+
+<body>
+    <h1>Online Zaubertrank Editor</h1>
+    <fieldset>
+        <h2>Generelle Infos</h2>
+        <form id="formular">
+                <label for="Trankname">Magic Drink Name</label><br>
+                <input type="text" id="Trankname" name="Trankname">
+                <br><br>
+                <label for="textarea">Description</label><br>
+                <textarea id="textarea"></textarea>
+                <br><br>
+                <div id="Wirkung"><label for="Wirkung">Effect</label><br>
+                      <input type="radio" id="lt" name="Wirkung" value="Liebestrank">
+                      <label for="lt">Love</label> 
+                      <input type="radio" id="pt" name="Wirkung" value="Powertrank">
+                      <label for="pt">Power</label>
+                      <input type="radio" id="at" name="Wirkung" value="Alterungstrank">
+                      <label for="at">Aging</label> 
+                    <br><br>
+                    <label for="Wirkungsdauer">Effect will last you...</label><br>
+                    <input type="range" min="1" step="1" id="Wirkung_value" name="Wirkungsdauer" max="10" value="5">
+                    <input type="text" id="bubbleWirkung_value" value="10" disabled="disabled" class="time">h</div></div>
+    </fieldset>
+
+            <div id="act"></div>
+        </form>
+
+       <br>
+       
+       <fieldset>
+        <h2>Anweisungen</h2>
+        <form id="button">
+            <legend>Add Ingredients</legend>
+            <div id="Zutaten"><div>
+                    <select id="Zutaten">                        
+                        <option value="Blutegel" price="10" stepper="true">Blutegel</option>
+                        <option value="Rattenschwanz" price="5" stepper="true">Rattenschwanz</option>
+                        <option value="Spinnenbeine" price="12" stepper="true">Spinnenbeine</option>
+                        <option value="Aalaugen" price="10" stepper="true">Aal</option>
+                        <option value="Echsenblut" price="200" stepper="false">Bärenfell</option>
+                        <option value="Einhorntränen" price="30" stepper="false">Feenstaub</option>
+                    </select><br>
+                    
+                    <input type="range" min="1" step="1" id="Zutaten_value" name="Menge" max="500" value="250">
+                    <input type="text" id="bubbleZutaten_value" value="500" disabled="disabled" class="time"> Stück/ml</div></div>
+            <button type="button" id="ingredients">+</button><br>
+
+            <legend>How to cook it</legend>
+            <div>
+                <input name="heat" id="heat_input" type="range" min="1" max="60" step="1" value="20">
+                <input type="text" id="bubbleheat_input" value="20" class="time" disabled=""> °C <br>
+                <input type="checkbox" id="Konsistenz_Heat" name="heating" value="Konsistenz"> 
+                <label for="Konsistenz_Heat">until consistency</label>
+                <p class="reveal">
+                    <select id="Konsistenz_value">
+                        <option value="zaeh">zäh</option>
+                        <option value="schleimig">schleimig</option>
+                        <option value="duennfluessig">dünnflüssig</option>
+                    </select>
+                </p>
+                <input type="checkbox" id="HeatTime" name="heating" value="HeatTime"> 
+                <label for="HeatTime">duration</label>
+                <p class="reveal">
+                    <input id="HeatTime_value" type="range" min="1" max="200" step="1" value="1">
+                    <input type="text" id="bubbleHeatTime_value" value="20" class="time" disabled=""> min <br>
+                </p>
+                <input type="checkbox" id="HeatColor" name="heating" value="Color"> 
+                <label for="HeatColor">until color</label>
+                <p class="reveal"><input type="color" id="Color" name="color"></p>
+            </div>    
+            <button type="button" id="heat">+</button>
+            <br>
+
+            <legend>How to stir it</legend>
+            <div>
+                <select name="stir" id="stiring">
+                    <option value="leicht Rühren.">leicht Rühren</option>
+                    <option value="schnell Rühren.">schnell Rühren</option>
+                    <option value="ab und zu Rühren.">ab und zu Rühren</option>
+                </select><br>
+                <input type="checkbox" id="Konsistenz" name="stiring" value="Konsistenz"> 
+                <label for="Konsistenz">until consistency</label>
+                <p class="reveal">
+                    <select id="Konsistenz_stir">
+                        <option value="zaeh">zäh</option>
+                        <option value="cremig">cremig</option>
+                        <option value="luftig">luftig</option>
+                    </select>
+                </p>
+                <input type="checkbox" id="stirTime" name="stiring" value="stirTime"> 
+                <label for="stirTime">stir duration</label>
+                <p class="reveal">
+                    <input id="stirTime_value" type="range" min="1" max="200" step="1" value="1">
+                    <input type="text" id="bubblestirTime_value" value="20" class="time" disabled=""> min <br>
+                </p>
+                
+                <input type="checkbox" id="stirColor" name="stiring" value="stirColor"> 
+                <label for="stirColor">until color</label>
+                <p class="reveal"><input type="color" id="ColorStiring" name="color"></p>
+            </div>
+            <button type="button" id="stir">+</button><br>
+        </form>
+       </fieldset>
+
+
+<fieldset>
+        <div id="infos">
+            <div id="basic">
+                <h2> Infos</h2>
+            </div>
+        </div>
+        <br><br>
+        <div id="order">
+            <h2>Order</h2>
+            <div id="action"></div>
+            <div id="total"></div>            
+            <br>        
+            <form id="send" method="GET">
+
+            <br><br>
+            <button type="button" id="submit">Send</button>
+            <button type="button" id="deleteAll">Reset</button>
+        </div>
+</fieldset>
+        
+    </main>
+</body>
