@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>CocktailBar</title>
+	<link rel="stylesheet" href="CocktailBar.css" type="text/css" media="screen" />
+	<script src="GenerateContent.js" type="text/javascript" charset="utf-8"></script>
+	<script src="CocktailBar.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <h1>Hexenkessel</h1>
+    <main>
+        <form id="formular">
+            <fieldset id="general">
+                <legend>Basics</legend>
+                <label for="Trankname">Trankname</label><br>
+                <input type="text" id="Trankname" name="Trankname" placeholder="Phial of Victory"><br>
+                <label for="textarea">Risiken und Nebenwirkungen</label><br>
+                <textarea id="textarea"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Wirkung</legend>
+                <div id="Wirkung"><div><label for="Wirkung">Wirkung</label><br><select id="Wirkung"><option value="Liebestrank">Liebestrank</option><option value="Schlaftrunk">Schlaftrunk</option><option value="Alterstrunk">Alterstrunk</option><option value="Euphorie-Trank">Euphorie-Trank</option><option value="Glückstrank">Glückstrank</option><option value="Gegengift">Gegengift</option><option value="Elixir des Lebens">Elixir des Lebens</option><option value="Wahrheitselixir">Wahrheitselixir</option><option value="Vielsafttrank">Vielsafttrank</option><option value="Stärketrunk">Stärketrunk</option></select><br><label for="Wirkungsdauer">Wirkungsdauer</label><br><input type="range" min="1" step="1" id="Wirkung_value" name="Wirkungsdauer" max="60" value="30"><input type="text" id="bubbleWirkung_value" value="30" disabled="disabled" class="time"> min</div></div>
+            </fieldset>
+            <div id="act"></div>
+        </form>
+        <form id="button">
+            <legend>Add Ingredients</legend><div id="Zutaten"><div><select id="Zutaten"><option value="Rattenschwanz" price="10" stepper="true">Rattenschwanz</option><option value="Spinnenbeine" price="5" stepper="true">Spinnenbeine</option><option value="Aalaugen" price="15" stepper="true">Aalaugen</option><option value="Blutegel" price="20" stepper="true">Blutegel</option><option value="Echsenblut" price="5" stepper="false">Echsenblut</option><option value="Einhorntränen" price="300" stepper="false">Einhorntränen</option><option value="Flubberwurmschleim" price="50" stepper="false">Flubberwurmschleim</option><option value="Gift" price="60" stepper="false">Gift</option></select><br><input type="range" min="1" step="1" id="Zutaten_value" name="Menge" max="500" value="30"><input type="text" id="bubbleZutaten_value" value="30" disabled="disabled" class="time"> Stück/ml</div></div>
+            <button type="button" id="ingredients">Add</button>
+            <legend>Heat-Action</legend>
+            <div>
+                <input name="heat" id="heat_input" type="range" min="1" max="60" step="1" value="20">
+                <input type="text" id="bubbleheat_input" value="20" class="time" disabled=""> °C <br>
+                <input type="checkbox" id="Konsistenz_Heat" name="heating" value="Konsistenz"> 
+                <label for="Konsistenz_Heat">Bis zu dieser Konsistenz:</label>
+                <p class="reveal">
+                    <select id="Konsistenz_value">
+                        <option value="zaeh">zäh</option>
+                        <option value="cremig">cremig</option>
+                        <option value="luftig">luftig</option>
+                    </select>
+                </p>
+                <input type="checkbox" id="HeatTime" name="heating" value="HeatTime"> 
+                <label for="HeatTime">So lange</label>
+                <p class="reveal">
+                    <input id="HeatTime_value" type="range" min="1" max="200" step="1" value="1">
+                    <input type="text" id="bubbleHeatTime_value" value="20" class="time" disabled=""> min <br>
+                </p>
+                <input type="checkbox" id="HeatColor" name="heating" value="Color"> 
+                <label for="HeatColor">Bis zu dieser Farbe</label>
+                <p class="reveal"><input type="color" id="Color" name="color"></p>
+            </div>    
+            <button type="button" id="heat">Add</button>
+            
+            <legend>Stir-Action</legend>
+            <div>
+                <select name="stir" id="stiring">
+                    <option value="unterheben">unterheben</option>
+                    <option value="leicht">leicht Rühren</option>
+                    <option value="stark">stark Rühren</option>
+                </select><br>
+                <input type="checkbox" id="Konsistenz" name="stiring" value="Konsistenz"> 
+                <label for="Konsistenz">Bis zu dieser Konsistenz:</label>
+                <p class="reveal">
+                    <select id="Konsistenz_stir">
+                        <option value="zaeh">zäh</option>
+                        <option value="cremig">cremig</option>
+                        <option value="luftig">luftig</option>
+                    </select>
+                </p>
+                <input type="checkbox" id="stirTime" name="stiring" value="stirTime"> 
+                <label for="stirTime">So lange</label>
+                <p class="reveal">
+                    <input id="stirTime_value" type="range" min="1" max="200" step="1" value="1">
+                    <input type="text" id="bubblestirTime_value" value="20" class="time" disabled=""> min <br>
+                </p>
+                
+                <input type="checkbox" id="stirColor" name="stiring" value="stirColor"> 
+                <label for="stirColor">Bis zu dieser Farbe</label>
+                <p class="reveal"><input type="color" id="ColorStiring" name="color"></p>
+            </div>
+            <button type="button" id="stir">Add</button>
+            <button type="button" id="delete">Delete last</button>
+            <button type="button" id="deleteAll">Delete All</button>
+        </form>
+        <div id="recipe">
+            <h1>Rezept</h1>
+            <div id="basic"><h2>Allgemein</h2></div>
+            <h2>Anweisungen</h2>
+            <div id="action"></div>
+            <div id="total"></div>
+        </div>
+        <form id="send" method="GET">
+            <button type="button" id="submit">Absenden</button>
+        </form>
+        
+    </main>
+
+<div id="shimai-world" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 2147483647; pointer-events: none; background: transparent;"></div><div id="weava-permanent-marker" date="1605797842255"></div><div id="weava-ui-wrapper"><div class="weava-drop-area-wrapper"><div class="weava-drop-area"></div>
+<div class="weava-drop-area-text">Drop here!</div>
+</div></div></body>
+
+</html>
