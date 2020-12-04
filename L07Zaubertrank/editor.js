@@ -1,9 +1,9 @@
 "use strict";
 //mit sehr viel Hilfe von Corinnas Code
-var L06Zaubertrank;
-(function (L06Zaubertrank) {
-    L06Zaubertrank.getData();
-    document.getElementById("submit")?.addEventListener("click", L06Zaubertrank.sendDrink);
+var L07Zaubertrank;
+(function (L07Zaubertrank) {
+    L07Zaubertrank.getData();
+    document.getElementById("submit")?.addEventListener("click", L07Zaubertrank.sendDrink);
     document.getElementById("formular")?.addEventListener("change", handleChange);
     document.getElementById("heat")?.addEventListener("click", handleButton);
     document.getElementById("stir")?.addEventListener("click", handleButton);
@@ -124,7 +124,7 @@ var L06Zaubertrank;
         let y = _event.target.id;
         document.getElementById("bubble" + y).value = x;
     }
-    L06Zaubertrank.slider = slider;
+    L07Zaubertrank.slider = slider;
     function priceInCurrency(_price, _total) {
         debugger;
         if (_total == false)
@@ -167,5 +167,5 @@ var L06Zaubertrank;
         input.setAttribute("class", _size);
         return input;
     }
-})(L06Zaubertrank || (L06Zaubertrank = {}));
+})(L07Zaubertrank || (L07Zaubertrank = {}));
 //# sourceMappingURL=editor.js.map

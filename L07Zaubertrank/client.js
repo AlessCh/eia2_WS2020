@@ -1,16 +1,16 @@
 "use strict";
 //erarbeitet mit Corinna
-var L06Zaubertrank;
-(function (L06Zaubertrank) {
+var L07Zaubertrank;
+(function (L07Zaubertrank) {
     async function getData() {
         let response = await fetch("data.json");
         let content = await response.text();
         let data = JSON.parse(content);
         console.log("DATA:");
         console.log(data);
-        L06Zaubertrank.generateContent(data);
+        L07Zaubertrank.generateContent(data);
     }
-    L06Zaubertrank.getData = getData;
+    L07Zaubertrank.getData = getData;
     async function sendDrink(_event) {
         console.log("send potion");
         let url = "https://eiafuwa.herokuapp.com/";
@@ -27,12 +27,14 @@ var L06Zaubertrank;
             url += "&Wirkung=" + select.value;
         if (textarea.value != "")
             url += "&Nebenwirkungen=" + textarea.value;
-        let response = await fetch(url);
-        //console.log(response);
-        let reply = await response.text();
-        //console.log(reply);
-        alert("Potion sent!");
+        let descriptionData = new FormData(document.forms[0]);
+        let instructionData = new FormData(document.forms[1]);
+        let descriptionQuery = new URLSearchParams(descriptionData);
+        let instructionQuery = new URLSearchParams(instructionData);
+        let response = await fetch(url + "?" + descriptionQuery.toString() + "&" + instructionQuery.toString());
+        let responseText = await response.text();
+        alert("Potion sent! " + responseText.replace(/<br>/g, " "));
     }
-    L06Zaubertrank.sendDrink = sendDrink;
-})(L06Zaubertrank || (L06Zaubertrank = {}));
+    L07Zaubertrank.sendDrink = sendDrink;
+})(L07Zaubertrank || (L07Zaubertrank = {}));
 //# sourceMappingURL=client.js.map

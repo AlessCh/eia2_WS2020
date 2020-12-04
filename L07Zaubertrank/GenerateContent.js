@@ -1,6 +1,6 @@
 "use strict";
-var L06Zaubertrank;
-(function (L06Zaubertrank) {
+var L07Zaubertrank;
+(function (L07Zaubertrank) {
     function generateContent(_data) {
         console.log(JSON.stringify(_data));
         let group = null;
@@ -11,10 +11,10 @@ var L06Zaubertrank;
             if (div && group)
                 div.appendChild(group);
         }
-        document.getElementById("Wirkung_value")?.addEventListener("input", L06Zaubertrank.slider);
-        document.getElementById("Zutaten_value")?.addEventListener("input", L06Zaubertrank.slider);
+        document.getElementById("Wirkung_value")?.addEventListener("input", L07Zaubertrank.slider);
+        document.getElementById("Zutaten_value")?.addEventListener("input", L07Zaubertrank.slider);
     }
-    L06Zaubertrank.generateContent = generateContent;
+    L07Zaubertrank.generateContent = generateContent;
     function createSelect(_items, _category) {
         let group = document.createElement("div");
         let select = document.createElement("select");
@@ -71,5 +71,5 @@ var L06Zaubertrank;
             group.innerHTML += " Stück/ml";
         return group;
     }
-})(L06Zaubertrank || (L06Zaubertrank = {}));
+})(L07Zaubertrank || (L07Zaubertrank = {}));
 //# sourceMappingURL=GenerateContent.js.map

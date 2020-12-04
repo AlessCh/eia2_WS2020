@@ -28,11 +28,12 @@ namespace L07Zaubertrank {
         if (textarea.value != "")
         url += "&Nebenwirkungen=" + textarea.value;
 
-
-        let response: Response = await fetch(url);
-        //console.log(response);
-        let reply: string = await response.text();
-        //console.log(reply);
-        alert("Potion sent!");
+        let descriptionData: FormData = new FormData(document.forms[0]);
+        let instructionData: FormData = new FormData(document.forms[1]);
+        let descriptionQuery: URLSearchParams = new URLSearchParams(<any>descriptionData);
+        let instructionQuery: URLSearchParams = new URLSearchParams(<any>instructionData);
+        let response: Response = await fetch(url + "?" + descriptionQuery.toString() + "&" + instructionQuery.toString());
+        let responseText: string = await response.text();
+        alert("Potion sent! " + responseText.replace(/<br>/g, " "));
     }
 }

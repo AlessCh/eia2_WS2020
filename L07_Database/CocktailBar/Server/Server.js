@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.L07_Database = void 0;
 const Http = require("http");
 const Url = require("url");
-var L06_CocktailBar;
-(function (L06_CocktailBar) {
+var L07_Database;
+(function (L07_Database) {
     let server = Http.createServer();
     let port = process.env.PORT;
     if (port == undefined)
@@ -12,6 +13,13 @@ var L06_CocktailBar;
     server.listen(port);
     server.addListener("request", handleRequest);
     function handleRequest(_request, _response) {
+        //Erweiterung  local + remote, Entscheidung ob lokal oder online datenbank genutzt
+        //package jason den start ändern
+        //client anpassen damit er mit Heroku kommuniziert
+        //Erweiterung Funktion retrieveOrders mit orders.find() das Order[] zurückliefert
+        //async to Array() nutzen für den Barkeeper
+        //Erweiterung handleRequest damit retrieveOrders aufgerufen wird
+        //Ergebnis als String in die Serverantwort, wenn Server mit command=retrieve aufgerufen wird
         console.log("What's up?");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
@@ -25,5 +33,5 @@ var L06_CocktailBar;
         }
         _response.end();
     }
-})(L06_CocktailBar = exports.L06_CocktailBar || (exports.L06_CocktailBar = {}));
+})(L07_Database = exports.L07_Database || (exports.L07_Database = {}));
 //# sourceMappingURL=Server.js.map
