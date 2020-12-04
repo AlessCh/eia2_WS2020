@@ -27,6 +27,7 @@ var L07Zaubertrank;
             url += "&Wirkung=" + select.value;
         if (textarea.value != "")
             url += "&Nebenwirkungen=" + textarea.value;
+        //mithilfe von ayaans code
         let descriptionData = new FormData(document.forms[0]);
         let instructionData = new FormData(document.forms[1]);
         let descriptionQuery = new URLSearchParams(descriptionData);

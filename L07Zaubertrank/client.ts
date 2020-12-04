@@ -28,6 +28,7 @@ namespace L07Zaubertrank {
         if (textarea.value != "")
         url += "&Nebenwirkungen=" + textarea.value;
 
+        //mithilfe von ayaans code
         let descriptionData: FormData = new FormData(document.forms[0]);
         let instructionData: FormData = new FormData(document.forms[1]);
         let descriptionQuery: URLSearchParams = new URLSearchParams(<any>descriptionData);
