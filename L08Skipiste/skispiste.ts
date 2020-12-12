@@ -122,8 +122,8 @@ namespace L08_Skipiste {
     function drawSun(_position: Vector): void { //Position vom Typ Vektor
         console.log("Sun", _position);
 
-        let r1: number = 30; //innerer Radius
-        let r2: number = 150;
+        let r1: number = 40; //innerer Radius
+        let r2: number = 160;
         let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, r1, 0, 0, r2); //Gradient, Radial Kreisförmig
 
         gradient.addColorStop(0, "HSL(62, 100%, 92%,1)"); //r1, gelb 60, Helligkeit 90, 1 Opacity 
@@ -140,7 +140,7 @@ namespace L08_Skipiste {
     function drawCloud(_position: Vector, _size: Vector): void { //Position und Size vom Typ Vektor
         console.log("Cloud", _position, _size);
 
-        let nParticles: number = 20;
+        let nParticles: number = 50;
         let radiusParticle: number = 60; //einzelne Partikel
         let particle: Path2D = new Path2D(); //Partikel Path
         let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
@@ -342,6 +342,7 @@ namespace L08_Skipiste {
         console.log("Skier");
 
         //Skier 1
+        crc2.save();
         crc2.beginPath();
         crc2.arc(841, 420, 15, 0, 2 * Math.PI); //links&rechts, hoch&runter, größe   !! KOPF
         crc2.fillStyle = "hsl(24, 31%, 81%)";
@@ -404,6 +405,8 @@ namespace L08_Skipiste {
         crc2.fillStyle = "hsl(61, 89%, 54%)";    
         crc2.fill();
 
+        crc2.restore();
+
         //Skier 2
         crc2.beginPath();
         crc2.arc(541, 370, 15, 0, 2 * Math.PI); //links&rechts, hoch&runter, größe   !! KOPF
@@ -427,6 +430,7 @@ namespace L08_Skipiste {
     function drawNonskiers(): void {
         console.log("Nonskier");
 
+        crc2.save();
         //Person 1 am Haus
         crc2.beginPath();
         crc2.arc(841, 270, 15, 0, 2 * Math.PI); //links&rechts, hoch&runter, größe   !! KOPF
@@ -464,10 +468,14 @@ namespace L08_Skipiste {
         crc2.fillRect(750, 346, 7, 3); //x,y,width,height    !! rechter Schuh
         crc2.fillRect(763, 346, 7, 3); //x,y,width,height    !! linker Schuh
         crc2.closePath();
+
+        crc2.restore();
     }
 
     function drawSnowflakes(): void {
     console.log("Snowflakes");
+
+    crc2.save();
 
     for (let i = 0; i < 70; i++) {
         const x = Math.random() * 1000;
@@ -475,6 +483,9 @@ namespace L08_Skipiste {
         crc2.beginPath();
         crc2.arc(x, y, 3, 0, Math.PI * 2, false);
         crc2.closePath();
+
+        crc2.restore();
+    
     // fill snowflake with white
         crc2.fillStyle = "white";
         crc2.fill();
