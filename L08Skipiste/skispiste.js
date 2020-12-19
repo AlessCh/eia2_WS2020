@@ -96,8 +96,8 @@ var L08_Skipiste;
     }
     function drawSun(_position) {
         console.log("Sun", _position);
-        let r1 = 30; //innerer Radius
-        let r2 = 150;
+        let r1 = 40; //innerer Radius
+        let r2 = 160;
         let gradient = crc2.createRadialGradient(0, 0, r1, 0, 0, r2); //Gradient, Radial Kreisförmig
         gradient.addColorStop(0, "HSL(62, 100%, 92%,1)"); //r1, gelb 60, Helligkeit 90, 1 Opacity 
         gradient.addColorStop(1, "HSL(62, 93%, 80%,0)"); //r2, gelb 60, Helligkeit 50, 0 Opacity
@@ -110,7 +110,7 @@ var L08_Skipiste;
     }
     function drawCloud(_position, _size) {
         console.log("Cloud", _position, _size);
-        let nParticles = 20;
+        let nParticles = 50;
         let radiusParticle = 60; //einzelne Partikel
         let particle = new Path2D(); //Partikel Path
         let gradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
@@ -278,6 +278,7 @@ var L08_Skipiste;
     function drawSkiers() {
         console.log("Skier");
         //Skier 1
+        crc2.save();
         crc2.beginPath();
         crc2.arc(841, 420, 15, 0, 2 * Math.PI); //links&rechts, hoch&runter, größe   !! KOPF
         crc2.fillStyle = "hsl(24, 31%, 81%)";
@@ -332,6 +333,7 @@ var L08_Skipiste;
         crc2.stroke();
         crc2.fillStyle = "hsl(61, 89%, 54%)";
         crc2.fill();
+        crc2.restore();
         //Skier 2
         crc2.beginPath();
         crc2.arc(541, 370, 15, 0, 2 * Math.PI); //links&rechts, hoch&runter, größe   !! KOPF
@@ -352,6 +354,7 @@ var L08_Skipiste;
     }
     function drawNonskiers() {
         console.log("Nonskier");
+        crc2.save();
         //Person 1 am Haus
         crc2.beginPath();
         crc2.arc(841, 270, 15, 0, 2 * Math.PI); //links&rechts, hoch&runter, größe   !! KOPF
@@ -388,15 +391,18 @@ var L08_Skipiste;
         crc2.fillRect(750, 346, 7, 3); //x,y,width,height    !! rechter Schuh
         crc2.fillRect(763, 346, 7, 3); //x,y,width,height    !! linker Schuh
         crc2.closePath();
+        crc2.restore();
     }
     function drawSnowflakes() {
         console.log("Snowflakes");
+        crc2.save();
         for (let i = 0; i < 70; i++) {
             const x = Math.random() * 1000;
             const y = Math.random() * 600;
             crc2.beginPath();
             crc2.arc(x, y, 3, 0, Math.PI * 2, false);
             crc2.closePath();
+            crc2.restore();
             // fill snowflake with white
             crc2.fillStyle = "white";
             crc2.fill();
